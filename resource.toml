@@ -1,0 +1,5 @@
+type = 'js'
+main = 'server/main.js'
+client-files = [ 'client/*', 'shared/*' ]
+client-main = 'client/main.js'
+deps = []

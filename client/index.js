@@ -13,8 +13,8 @@ let shopId
 let isActive = false
 let player = alt.Player.local;
 let view;
-const url = `http://resource/client/vehicleShop/html/cars.html`;
-
+const url = `http://resource/client/html/cars.html`;
+alt.requestIpl("shr_int");
 
 alt.onServer('client::vehicleCamera:create', createVehicleChoiceCamera);
 alt.onServer('client::vehicleCamera:disable', destroyPedEditCamera);
@@ -40,7 +40,7 @@ alt.on('keyup', (key) => {
             const type = value.getMeta("type");
             if (dist <= 2 && type == "vehicleShop") {
                 isActive = true;
-                alt.showCursor(tru                                                                                            e);
+                alt.showCursor(true);
                 const data = value.getMeta("data");
                 shopId = data["id"];
                 alt.emitServer("vehicleShop:active", shopId);

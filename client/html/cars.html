@@ -33,15 +33,15 @@
         <div class="cars__wrapper">
           <div class="cars__col menu">
             <div class="cars-nav">
-              <div class="cars-nav__title title">Список автомобилей:</div>
+              <div class="cars-nav__title title">cars list:</div>
               <div class="cars-nav__find-box">
                 <div class="cars-nav__search">
                   <img src="images/search.svg" alt="search" />
-                  <input type="text" placeholder="Поиск" v-model="search" />
+                  <input type="text" placeholder="Search" v-model="search" />
                 </div>
                 <div class="cars-nav__filter" @click="toggleFilter">
                   <img src="images/filter.svg" alt="filter" />
-                  Фильтр
+                  Filter
                 </div>
               </div>
               <div class="cars-nav__items">
@@ -49,17 +49,16 @@
                   v-for="(car, index) in carsList"
                   :key="index"
                   class="cars-nav__item"
-                  :class="{'cars-nav__item--active': isCarActive(car.param.display)}"
-                  @click="selectCarHandler(car.param.name, car.id)"
+                  :class="{'cars-nav__item--active': isCarActive(car.name)}"
+                  @click="selectCarHandler(car.name, car.id)"
                 >
                   <div class="cars-nav__item--inner">{{car.param.display}}</div>
                 </div>
               </div>
-              <div class="cars-nav__gradient"></div>
             </div>
             <div v-show="isFilterVisible" class="cars-filter">
               <div class="cars-fitler__close" @click="closeFilter">x</div>
-              <div class="cars-filter__title title">Фильтр по марка авто</div>
+              <div class="cars-filter__title title">Filter</div>
               <div class="cars-filter__items">
                 <div
                   v-for="(filter, index) in filterList"
@@ -71,7 +70,6 @@
                   <div class="cars-filter__item--inner">{{filter}}</div>
                 </div>
               </div>
-              <div class="cars-filter__gradient"></div>
             </div>
           </div>
           <div class="cars__col params">
@@ -82,18 +80,18 @@
                     {{selectedCarDetails.param.display}}
                   </div>
                   <div class="info__volume">
-                    Объем бака:
+                    Fuel tank volume:
                     <span class="info__volume__value"
-                      >{{selectedCarDetails.param.fuel_tank_volume}} Л</span
+                      >{{selectedCarDetails.param.fuel_tank_volume}} L</span
                     >
                   </div>
                 </div>
                 <div class="info__params">
                   <div class="info__param">
                     <div class="info__param__text">
-                      Скорость
+                      Speed
                       <span class="info__param__value"
-                        >{{selectedCarDetails.param.speed}}км/ч</span
+                        >{{selectedCarDetails.param.speed}}Km/h</span
                       >
                     </div>
                     <div class="info__param-progress-bar">
@@ -106,7 +104,7 @@
                   </div>
                   <div class="info__param">
                     <div class="info__param__text">
-                      Ускорение
+                      Acceleration
                       <span class="info__param__value"
                         >{{selectedCarDetails.param.acceleration}}</span
                       >
@@ -121,7 +119,7 @@
                   </div>
                   <div class="info__param">
                     <div class="info__param__text">
-                      Управление
+                      Traction
                       <span class="info__param__value"
                         >{{selectedCarDetails.param.traction}}</span
                       >
@@ -136,7 +134,7 @@
                   </div>
                   <div class="info__param">
                     <div class="info__param__text">
-                      Торможение
+                      Braking
                       <span class="info__param__value"
                         >{{selectedCarDetails.param.braking}}</span
                       >
@@ -155,19 +153,19 @@
               <div class="cars-params__extra-info">
                 <div class="extra-info__params">
                   <div class="extra-info__param">
-                    Грузоподъемность:
+                    Trunk weight:
                     <div class="extra-info__param-value">
-                      {{selectedCarDetails.param.trunk_weight}} кг
+                      {{selectedCarDetails.param.trunk_weight}} Kg
                     </div>
                   </div>
                   <div class="extra-info__param">
-                    Слоты в багажнике:
+                    Trunk slots:
                     <div class="extra-info__param-value">
                       {{selectedCarDetails.param.trunk_slot}}
                     </div>
                   </div>
                   <div class="extra-info__param">
-                    Количество мест:
+                    Seats:
                     <div class="extra-info__param-value">
                       {{selectedCarDetails.param.seats}}
                     </div>
@@ -177,7 +175,7 @@
 
               <div class="cars-params__colors colors">
                 <div class="colors__group">
-                  <div class="colors__title">Основные цвета</div>
+                  <div class="colors__title">Primary color</div>
                   <div class="colors__items">
                     <div
                       v-for="(item, index) in colors"
@@ -190,7 +188,7 @@
                   </div>
                 </div>
                 <div class="colors__group">
-                  <div class="colors__title">Дополнительные цвета</div>
+                  <div class="colors__title">Secondary color</div>
                   <div class="colors__items">
                     <div
                       v-for="(item, index) in colors"
@@ -208,18 +206,18 @@
                   {{ formatPrice(selectedCarDetails.price) }} $
                 </div>
                 <button class="cars-params__buy" @click.prevent="submit">
-                  Купить
+                  Buy
                 </button>
               </div>
               <a href="#" class="cars-params__test-drive" @click.prevent
-                >Тест драйв</a
+                >Test drive</a
               >
             </div>
           </div>
         </div>
         <div v-show="isModalVisible" class="modal-layout">
           <div class="modal">
-            <div class="modal__text">У вас недостаточно средств!</div>
+            <div class="modal__text">You don't have enough money!</div>
             <button class="modal__button" @click.prevent="toggleModal">
               ОК!
             </button>

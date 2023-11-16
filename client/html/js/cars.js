@@ -67,27 +67,6 @@ const COLORS = [{
     }
 ];
 
-const CARS = [
-    {
-        display: 'Cheval Picador',
-        name: 'picador',
-        type: 'Car',
-        class: 'Muscle',
-        brand: 'Cheval',
-
-        price: 120000,
-        seats: 2,
-        trunk_weight: 60,
-        trunk_slot: 50,
-        fuel_tank_volume: 60,
-
-        speed: 72,
-        acceleration: 55,
-        braking: 26,
-        traction: 62,
-    }
-];
-
 const formatPrice = (s) =>
     s?.toString().replace(/(?!^)(?=(?:\d{3})+(?:\.|$))/gm, ' ');
 
@@ -131,11 +110,11 @@ new Vue({
         },
 
         selectedCarDetails() {
-            return this.carsList.find((car) => car?.param?.name === this.activeCar);
+            return this.carsList.find((car) => car?.name === this.activeCar);
         },
 
         isCarDetailsVisible() {
-            return !!this.selectedCarDetails?.param.name;
+            return !!this.selectedCarDetails?.name;
         },
     },
 

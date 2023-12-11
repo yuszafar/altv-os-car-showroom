@@ -1,5 +1,7 @@
 # altv-os-car-showroom
 
+
+
 # Install
 To install this script, just install it in the `resources` folder of your server and register it in your `config` file.
 
@@ -15,6 +17,7 @@ Ready-made working interface for your car dealership based on Vuejs. To create a
 - `marker_position` - Your dealership position 
 - `car_spawn_pos` - Position where the car spawns after purchase
 
+# ❤️ Sponsor 
 
-
+If you want to support me, just give me a [coffee ☕️](https://www.buymeacoffee.com/zafarzafark)
 
